@@ -1,0 +1,99 @@
+/* =============================================
+   RIO PARANACITO - Global Styles
+   Fuente: Atkinson Hyperlegible (max legibilidad)
+   Diseño: Alto contraste, tipografía grande
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Atkinson Hyperlegible', 'Trebuchet MS', Arial, sans-serif;
+  background: #0a2342;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fondo animado */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(0, 80, 160, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 80%, rgba(0, 40, 100, 0.5) 0%, transparent 60%),
+    linear-gradient(180deg, #0a2342 0%, #071828 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Botones accesibles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+
+/* Focus accesible */
+button:focus-visible {
+  outline: 4px solid #4fc3f7;
+  outline-offset: 3px;
+}
+
+/* Área mínima táctil */
+button, a, [role="button"] {
+  min-height: 56px;
+  min-width: 56px;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar horizontal */
+body {
+  overflow-x: hidden;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.fade-in { animation: fadeInUp 0.4s ease forwards; }
+.pulse { animation: pulse 2s ease infinite; }

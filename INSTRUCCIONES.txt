@@ -1,0 +1,67 @@
+######################################################################
+GUIA PASO A PASO: PROYECTO RIO-PARANACITO (ACCESIBLE PWA)
+######################################################################
+
+Como todavia no ejecutaste nada, los archivos en tu computadora siguen desordenados, pero yo ya les inyecte internamente todo el codigo que necesitan (la configuracion de Vite, GitLab Pages, las variables de entorno, etc).
+
+Solo tienes que seguir estos pasos en orden para que todo quede funcionando:
+
+----------------------------------------------------------------------
+PASO 1: REORGANIZAR Y LIMPIAR LAS CARPETAS
+----------------------------------------------------------------------
+He creado un script automatico para ti que va a ordenar todo este rompecabezas de carpetas anidadas y borrar la basura sin que pierdas nada.
+
+1. Ve a la carpeta raiz de tu proyecto:
+   C:\proyectos\altura de rios\
+2. Haz doble clic en el archivo llamado:
+   "reorganizar.bat"
+3. Espera un segundo a que termine. Vas a ver que ahora tendras tu carpeta limpia conteniendo principalmente:
+   - /frontend
+   - /backend
+   - .gitlab-ci.yml
+   - /legacy  (donde se guardaron los archivos viejos por seguridad)
+
+----------------------------------------------------------------------
+PASO 2: PROBAR EL BACKEND LOCALMENTE
+----------------------------------------------------------------------
+Tu backend de Node.js necesita estar prendido para darle los datos de clima y rio al Frontend.
+
+1. Abre una terminal (o consola de Git Bash / CMD)
+2. Ingresa a la carpeta del backend:
+   cd "C:\proyectos\altura de rios\backend"
+3. Instala las dependencias:
+   npm install
+4. Inicia el servidor:
+   npm run start   (O directamente: node server.js)
+5. Veras que arranca en el puerto 3001. Dejalo corriendo ahi en la consola minimizada.
+
+----------------------------------------------------------------------
+PASO 3: PROBAR EL FRONTEND LOCALMENTE
+----------------------------------------------------------------------
+Tu frontend ahora usa Vite super agil y PWA. Vamos a probar la app.
+
+1. Abre OTRA terminal o consola (manteniendo el backend prendido).
+2. Ingresa a la carpeta del frontend:
+   cd "C:\proyectos\altura de rios\frontend"
+3. Instala las dependencias de Vite y React:
+   npm install
+4. Levanta el proyecto web en modo local:
+   npm run dev
+5. Entra al enlace que te de la terminal (usualmente http://localhost:5173). Podras tocar el "Boton de Voz" gigante y probar todo!
+
+----------------------------------------------------------------------
+PASO 4: PUBLICAR EN GITLAB PAGES (PRODUCCION)
+----------------------------------------------------------------------
+El archivo oculto ".gitlab-ci.yml" ya esta configurado para agarrar tu frontend y publicarlo solo.
+
+1. En la raiz (C:\proyectos\altura de rios), inicializa git si no lo hiciste:
+   git init
+2. Agrega los archivos:
+   git add .
+3. Crea tu commit:
+   git commit -m "Primera version: Frontend y Backend de Rio"
+4. Envialo a tu repositorio de GitLab en la rama main:
+   git push origin main
+5. Ve a GitLab > Deploy > Pages y espera 2 minutos a que el Pipeline termine. Te dara un enlace HTTPs listo para descargar como aplicacion en la tablet!
+
+Cualquier duda en alguna terminal, avísame.
