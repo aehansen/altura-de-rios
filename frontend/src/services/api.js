@@ -1,5 +1,5 @@
 // URL del backend - cambiar por la URL real en producción
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_BASE = 'https://altura-de-rios.onrender.com/';
 
 async function fetchEndpoint(path) {
   const response = await fetch(`${API_BASE}${path}`, {
