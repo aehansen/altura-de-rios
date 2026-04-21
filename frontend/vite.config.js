@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: '/rio-paranacito/', // Cambiar al nombre de tu repo en GitHub
+  base: '/altura-de-rios/', // Adaptado a tu repo de GitHub
   plugins: [
     react(),
     VitePWA({
